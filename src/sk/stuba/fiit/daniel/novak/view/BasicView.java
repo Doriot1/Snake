@@ -1,8 +1,6 @@
 package sk.stuba.fiit.daniel.novak.view;
 
-import javafx.geometry.HPos;
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
@@ -12,7 +10,7 @@ import sk.stuba.fiit.daniel.novak.model.Context;
 /**
  * Created by Daniel on 8.8.2015.
  */
-public class BasicView extends BorderPane {
+public abstract class BasicView extends BorderPane {
     private final Context context;
     protected GridPane grid = new GridPane();
 
@@ -29,12 +27,11 @@ public class BasicView extends BorderPane {
 
     private void init() {
         grid.setPadding(new Insets(20));
-        grid.setGridLinesVisible(true);
+        grid.setGridLinesVisible(false);
         setCenter(grid);
 
 
-
-        for(int i = 0; i < 9; i++){
+        for (int i = 0; i < 9; i++) {
             grid.getColumnConstraints().add(new ColumnConstraints(50));
             grid.getRowConstraints().add(new RowConstraints(50));
         }

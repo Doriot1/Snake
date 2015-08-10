@@ -26,4 +26,12 @@ public class Context {
         stage.show();
     }
 
+    public Stage getStage(){
+        return stage;
+    }
+
+    public void close(){
+        stage.close();
+        System.out.println("Program successfully closed.");
+    }
 }

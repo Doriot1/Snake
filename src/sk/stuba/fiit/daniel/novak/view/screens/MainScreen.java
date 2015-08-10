@@ -10,20 +10,24 @@ import sk.stuba.fiit.daniel.novak.view.BasicView;
  */
 public class MainScreen extends BasicView {
 
+    private MainScreenListener mainScreenListener;
+
     private Button button;
     private Button button2;
     private Button button3;
+
 
     public MainScreen(Context context) {
         super(context);
         init();
         add();
-        getStylesheets().add("style.css");
 
     }
 
     private void init() {
         grid.setId("pane");
+        getStylesheets().add("style.css");
+
         button = new Button("Play");
         button2 = new Button("Options");
         button3 = new Button("Quit");
@@ -31,7 +35,13 @@ public class MainScreen extends BasicView {
         grid.setHalignment(button, HPos.CENTER);
         grid.setHalignment(button2, HPos.CENTER);
         grid.setHalignment(button3, HPos.CENTER);
+
+
+        button.setOnAction(e -> mainScreenListener.onButtonPlay());
+        button3.setOnAction(e -> mainScreenListener.onButtonClose());
     }
+
+
 
     private void add() {
         grid.add(button, 3, 2, 3, 1);
@@ -39,5 +49,12 @@ public class MainScreen extends BasicView {
         grid.add(button3, 3, 6, 3, 1);
     }
 
+    public void setMainScreenListener(MainScreenListener listener) {
+        this.mainScreenListener = listener;
+    }
 
+    public interface MainScreenListener {
+        void onButtonClose();
+        void onButtonPlay();
+    }
 }
