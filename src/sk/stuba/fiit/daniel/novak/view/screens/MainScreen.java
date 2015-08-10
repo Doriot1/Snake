@@ -36,7 +36,7 @@ public class MainScreen extends BasicView {
         grid.setHalignment(button2, HPos.CENTER);
         grid.setHalignment(button3, HPos.CENTER);
 
-
+        getContext().getStage().setOnCloseRequest(e -> mainScreenListener.onButtonClose());
         button.setOnAction(e -> mainScreenListener.onButtonPlay());
         button3.setOnAction(e -> mainScreenListener.onButtonClose());
     }

@@ -30,8 +30,4 @@ public class Context {
         return stage;
     }
 
-    public void close(){
-        stage.close();
-        System.out.println("Program successfully closed.");
-    }
 }
