@@ -6,8 +6,8 @@ package sk.stuba.fiit.daniel.novak.model;
 public class Snake {
     public final static int UP = 0, DOWN = 2, EAST = 1, WEST = 3;
     private boolean isAlive = true;
-    private int xPosition = 360;
-    private int yPosition = 360;
+    private int xPosition = 200;
+    private int yPosition = 200;
     private int direction = 1;
     private int ticks = 3;
 
@@ -26,6 +26,11 @@ public class Snake {
     public int getDirection() {
         return direction;
     }
+
+    public int getTicks(){
+        return ticks;
+    }
+
 
     public void setDirection(int direction) {
         this.direction = direction;

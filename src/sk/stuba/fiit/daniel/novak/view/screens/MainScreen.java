@@ -2,6 +2,7 @@ package sk.stuba.fiit.daniel.novak.view.screens;
 
 import javafx.geometry.HPos;
 import javafx.scene.control.Button;
+import javafx.scene.input.KeyCode;
 import sk.stuba.fiit.daniel.novak.model.Context;
 import sk.stuba.fiit.daniel.novak.view.BasicView;
 
@@ -39,6 +40,8 @@ public class MainScreen extends BasicView {
         getContext().getStage().setOnCloseRequest(e -> mainScreenListener.onButtonClose());
         button.setOnAction(e -> mainScreenListener.onButtonPlay());
         button3.setOnAction(e -> mainScreenListener.onButtonClose());
+
+
     }
 
 

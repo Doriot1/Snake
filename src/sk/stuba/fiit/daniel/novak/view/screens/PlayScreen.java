@@ -15,6 +15,7 @@ public class PlayScreen extends BasicView {
     private Canvas canvas;
     private GraphicsContext gc;
     private Label label;
+    private PlayScreenListener playScreenListener;
 
     public PlayScreen(Context context) {
         super(context);
@@ -31,6 +32,11 @@ public class PlayScreen extends BasicView {
         init();
         add();
 
+        setOnKeyPressed(e -> {
+            System.out.println("pls work");
+            playScreenListener.onKeyPressed();
+
+        });
     }
 
     private void init() {
@@ -39,5 +45,16 @@ public class PlayScreen extends BasicView {
 
     private void add() {
         grid2.add(label, 0, 0);
+    }
+
+
+    public GraphicsContext getGc() {
+        return gc;
+    }
+
+    public void setPlayScreenListener(PlayScreenListener playScreenListener){this.playScreenListener = playScreenListener;}
+
+    public interface PlayScreenListener {
+        void onKeyPressed();
     }
 }
