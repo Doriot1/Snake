@@ -15,25 +15,23 @@ import java.util.TimerTask;
  */
 public class PlayScreenController {
     private Timer timer = new Timer();
-    private KeyEvent event;
+
     private Snake snake;
 
     public PlayScreenController(GamePlay gamePlay, PlayScreen playScreen) {
-        //event = new KeyEvent();
+
         snake = new Snake();
 
-        playScreen.setPlayScreenListener(() -> {
-            System.out.println("Dont spam");
-            if (event.getCode() == KeyCode.W)
+        playScreen.setPlayScreenListener(keyCode -> {
+            if (keyCode == KeyCode.W)
                 snake.setDirection(0);
-            else if (event.getCode() == KeyCode.D)
+            else if (keyCode == KeyCode.D)
                 snake.setDirection(1);
-            else if (event.getCode() == KeyCode.S)
+            else if (keyCode == KeyCode.S)
                 snake.setDirection(2);
-            else if (event.getCode() == KeyCode.A)
+            else if (keyCode == KeyCode.A)
                 snake.setDirection(3);
 
-            event.consume();
         });
 
 

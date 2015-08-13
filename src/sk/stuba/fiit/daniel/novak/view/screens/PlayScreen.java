@@ -3,6 +3,7 @@ package sk.stuba.fiit.daniel.novak.view.screens;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import sk.stuba.fiit.daniel.novak.model.Context;
 import sk.stuba.fiit.daniel.novak.view.BasicView;
@@ -32,9 +33,11 @@ public class PlayScreen extends BasicView {
         init();
         add();
 
+        setFocusTraversable(true);
+
         setOnKeyPressed(e -> {
             System.out.println("pls work");
-            playScreenListener.onKeyPressed();
+            playScreenListener.onKeyPressed(e.getCode());
 
         });
     }
@@ -55,6 +58,6 @@ public class PlayScreen extends BasicView {
     public void setPlayScreenListener(PlayScreenListener playScreenListener){this.playScreenListener = playScreenListener;}
 
     public interface PlayScreenListener {
-        void onKeyPressed();
+        void onKeyPressed(KeyCode keyCode);
     }
 }

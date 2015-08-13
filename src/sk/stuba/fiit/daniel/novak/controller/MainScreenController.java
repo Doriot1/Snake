@@ -27,9 +27,8 @@ public class MainScreenController {
             public void onButtonPlay() {
                 playScreen = new PlayScreen(context);
                 context.switchScene(playScreen);
+                playScreen.requestFocus();
                 new PlayScreenController(gamePlay, playScreen);
-
-
             }
         });
     }
