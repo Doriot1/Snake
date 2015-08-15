@@ -34,4 +34,7 @@ public class MainScreenController {
     }
 
 
+    public static void initAndStart(Context context, MainScreen mainScreen) {
+        new MainScreenController(context, mainScreen);
+    }
 }

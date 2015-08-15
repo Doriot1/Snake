@@ -24,14 +24,13 @@ public class PlayScreenController {
 
         playScreen.setPlayScreenListener(keyCode -> {
             if (keyCode == KeyCode.W)
-                snake.setDirection(0);
+                snake.setDirection(Snake.Direction.UP);
             else if (keyCode == KeyCode.D)
-                snake.setDirection(1);
+                snake.setDirection(Snake.Direction.RIGHT);
             else if (keyCode == KeyCode.S)
-                snake.setDirection(2);
+                snake.setDirection(Snake.Direction.DOWN);
             else if (keyCode == KeyCode.A)
-                snake.setDirection(3);
-
+                snake.setDirection(Snake.Direction.LEFT);
         });
 
 
@@ -40,7 +39,6 @@ public class PlayScreenController {
             public void run() {
                 Platform.runLater(() -> {
                     if (snake.isAlive()) {
-                        System.out.println("I live");
                         gamePlay.render(playScreen.getGc(), snake);
                     } else
                         cancel();

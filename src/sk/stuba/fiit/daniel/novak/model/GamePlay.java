@@ -15,13 +15,13 @@ public class GamePlay {
         gc.setLineWidth(5);
 
         snake.move();
-        if (snake.getDirection() == 0)
+        if (snake.getDirection() == Snake.Direction.UP)
             gc.strokeLine(snake.getXPosition(), snake.getYPosition(), snake.getXPosition(), snake.getYPosition() - 4);
-        if (snake.getDirection() == 1)
+        if (snake.getDirection() == Snake.Direction.LEFT)
             gc.strokeLine(snake.getXPosition(), snake.getYPosition(), snake.getXPosition() - 4, snake.getYPosition());
-        if (snake.getDirection() == 2)
+        if (snake.getDirection() == Snake.Direction.DOWN)
             gc.strokeLine(snake.getXPosition(), snake.getYPosition(), snake.getXPosition(), snake.getYPosition() + 4);
-        if (snake.getDirection() == 3)
+        if (snake.getDirection() == Snake.Direction.RIGHT)
             gc.strokeLine(snake.getXPosition(), snake.getYPosition(), snake.getXPosition() + 4, snake.getYPosition());
     }
 

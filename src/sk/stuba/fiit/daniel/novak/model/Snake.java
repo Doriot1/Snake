@@ -8,7 +8,7 @@ public class Snake {
     private boolean isAlive = true;
     private int xPosition = 200;
     private int yPosition = 200;
-    private int direction = 1;
+    private Direction direction = Direction.RIGHT;
     private int ticks = 3;
 
     public boolean isAlive() {
@@ -23,29 +23,36 @@ public class Snake {
         return yPosition;
     }
 
-    public int getDirection() {
+    public Direction getDirection() {
         return direction;
     }
 
-    public int getTicks(){
-        return ticks;
-    }
-
-
-    public void setDirection(int direction) {
+    public void setDirection(Direction direction) {
         this.direction = direction;
     }
 
-    public void move() {
-
-        if (direction == 0)
-            yPosition -= 4;
-        else if (direction == 1)
-            xPosition += 4;
-        else if (direction == 2)
-            yPosition += 4;
-        else if (direction == 3)
-            xPosition -= 4;
+    public int getTicks() {
+        return ticks;
     }
+
+    public void move() {
+        switch (direction) {
+
+            case UP:
+                yPosition -= 4;
+                break;
+            case DOWN:
+                yPosition += 4;
+                break;
+            case RIGHT:
+                xPosition += 4;
+                break;
+            case LEFT:
+                xPosition -= 4;
+                break;
+        }
+    }
+
+    public enum Direction {UP, DOWN, RIGHT, LEFT}
 
 }
