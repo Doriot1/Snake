@@ -1,7 +1,7 @@
 package sk.stuba.fiit.daniel.novak.controller;
 
 import sk.stuba.fiit.daniel.novak.model.Context;
-import sk.stuba.fiit.daniel.novak.model.GamePlay;
+import sk.stuba.fiit.daniel.novak.model.Graphics;
 import sk.stuba.fiit.daniel.novak.view.screens.MainScreen;
 import sk.stuba.fiit.daniel.novak.view.screens.PlayScreen;
 
@@ -11,7 +11,7 @@ import sk.stuba.fiit.daniel.novak.view.screens.PlayScreen;
 public class MainScreenController {
 
     private PlayScreen playScreen;
-    private GamePlay gamePlay = new GamePlay();
+    private Graphics graphics = new Graphics();
 
     public MainScreenController(Context context, MainScreen mainScreen) {
 
@@ -28,12 +28,12 @@ public class MainScreenController {
                 playScreen = new PlayScreen(context);
                 context.switchScene(playScreen);
                 playScreen.requestFocus();
-                new PlayScreenController(gamePlay, playScreen);
+                new PlayScreenController(graphics, playScreen);
             }
         });
     }
 
-
+    // Factory method - is static and creates a new object
     public static void initAndStart(Context context, MainScreen mainScreen) {
         new MainScreenController(context, mainScreen);
     }

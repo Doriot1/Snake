@@ -35,11 +35,7 @@ public class PlayScreen extends BasicView {
 
         setFocusTraversable(true);
 
-        setOnKeyPressed(e -> {
-            System.out.println("pls work");
-            playScreenListener.onKeyPressed(e.getCode());
-
-        });
+        setOnKeyPressed(e -> playScreenListener.onKeyPressed(e.getCode()));
     }
 
     private void init() {

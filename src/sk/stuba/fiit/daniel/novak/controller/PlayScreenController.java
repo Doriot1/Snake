@@ -2,8 +2,7 @@ package sk.stuba.fiit.daniel.novak.controller;
 
 import javafx.application.Platform;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
-import sk.stuba.fiit.daniel.novak.model.GamePlay;
+import sk.stuba.fiit.daniel.novak.model.Graphics;
 import sk.stuba.fiit.daniel.novak.model.Snake;
 import sk.stuba.fiit.daniel.novak.view.screens.PlayScreen;
 
@@ -18,7 +17,7 @@ public class PlayScreenController {
 
     private Snake snake;
 
-    public PlayScreenController(GamePlay gamePlay, PlayScreen playScreen) {
+    public PlayScreenController(Graphics graphics, PlayScreen playScreen) {
 
         snake = new Snake();
 
@@ -39,7 +38,8 @@ public class PlayScreenController {
             public void run() {
                 Platform.runLater(() -> {
                     if (snake.isAlive()) {
-                        gamePlay.render(playScreen.getGc(), snake);
+                        graphics.render(playScreen.getGc(), snake);
+                       // graphics.drawBoard(playScreen.getGc());
                     } else
                         cancel();
 

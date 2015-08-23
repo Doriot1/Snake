@@ -4,10 +4,9 @@ package sk.stuba.fiit.daniel.novak.model;
  * Created by Daniel on 8.8.2015.
  */
 public class Snake {
-    public final static int UP = 0, DOWN = 2, EAST = 1, WEST = 3;
     private boolean isAlive = true;
     private int xPosition = 200;
-    private int yPosition = 200;
+    private int yPosition = 196;
     private Direction direction = Direction.RIGHT;
     private int ticks = 3;
 
@@ -35,7 +34,12 @@ public class Snake {
         return ticks;
     }
 
+    /**
+     * move() method changes x and y positions of head
+     * according to key pressed
+     */
     public void move() {
+
         switch (direction) {
 
             case UP:
