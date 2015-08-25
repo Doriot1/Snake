@@ -18,8 +18,8 @@ public class Context {
     public void switchScene(Parent root){
         scene = new Scene(root);
         stage.setScene(scene);
-        stage.setHeight(500);
-        stage.setWidth(500);
+        stage.setHeight(530);
+        stage.setWidth(505);
         //stage.sizeToScene();
         stage.setResizable(false);
         stage.setTitle("Snake");

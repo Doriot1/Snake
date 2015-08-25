@@ -33,7 +33,7 @@ public class MainScreenController {
         });
     }
 
-    // Factory method - is static and creates a new object
+    // Factory method - it's static and creates a new object
     public static void initAndStart(Context context, MainScreen mainScreen) {
         new MainScreenController(context, mainScreen);
     }

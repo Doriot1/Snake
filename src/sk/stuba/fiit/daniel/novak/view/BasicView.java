@@ -29,7 +29,7 @@ public abstract class BasicView extends BorderPane {
     private void init() {
         grid.setPadding(new Insets(20));
         //grid.setGridLinesVisible(true);
-        grid2.setGridLinesVisible(true);
+        //grid2.setGridLinesVisible(true);
         setCenter(grid);
 
 

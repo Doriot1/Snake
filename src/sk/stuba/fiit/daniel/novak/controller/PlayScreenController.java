@@ -3,7 +3,7 @@ package sk.stuba.fiit.daniel.novak.controller;
 import javafx.application.Platform;
 import javafx.scene.input.KeyCode;
 import sk.stuba.fiit.daniel.novak.model.Graphics;
-import sk.stuba.fiit.daniel.novak.model.Snake;
+import sk.stuba.fiit.daniel.novak.model.snake.Snake;
 import sk.stuba.fiit.daniel.novak.view.screens.PlayScreen;
 
 import java.util.Timer;
@@ -39,13 +39,12 @@ public class PlayScreenController {
                 Platform.runLater(() -> {
                     if (snake.isAlive()) {
                         graphics.render(playScreen.getGc(), snake);
-                       // graphics.drawBoard(playScreen.getGc());
                     } else
                         cancel();
 
                 });
             }
-        }, 0L, 100L);
+        }, 0L, 200L);
 
 
     }
