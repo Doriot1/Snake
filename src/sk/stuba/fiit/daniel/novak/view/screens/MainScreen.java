@@ -40,10 +40,13 @@ public class MainScreen extends BasicView {
         getContext().getStage().setOnCloseRequest(e -> mainScreenListener.onButtonClose());
         button.setOnAction(e -> mainScreenListener.onButtonPlay());
         button3.setOnAction(e -> mainScreenListener.onButtonClose());
+        setOnKeyPressed(e -> {
+            if (e.getCode() == KeyCode.ENTER)
+                mainScreenListener.onButtonPlay();
+        });
 
 
     }
-
 
 
     private void add() {
@@ -58,6 +61,7 @@ public class MainScreen extends BasicView {
 
     public interface MainScreenListener {
         void onButtonClose();
+
         void onButtonPlay();
     }
 }

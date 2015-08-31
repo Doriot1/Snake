@@ -1,7 +1,6 @@
 package sk.stuba.fiit.daniel.novak.controller;
 
 import javafx.application.Platform;
-import javafx.scene.input.KeyCode;
 import sk.stuba.fiit.daniel.novak.model.Graphics;
 import sk.stuba.fiit.daniel.novak.model.snake.Snake;
 import sk.stuba.fiit.daniel.novak.view.screens.PlayScreen;
@@ -10,6 +9,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
+ * nope
  * Created by Daniel on 10.8.2015.
  */
 public class PlayScreenController {
@@ -22,14 +22,20 @@ public class PlayScreenController {
         snake = new Snake();
 
         playScreen.setPlayScreenListener(keyCode -> {
-            if (keyCode == KeyCode.W)
-                snake.setDirection(Snake.Direction.UP);
-            else if (keyCode == KeyCode.D)
-                snake.setDirection(Snake.Direction.RIGHT);
-            else if (keyCode == KeyCode.S)
-                snake.setDirection(Snake.Direction.DOWN);
-            else if (keyCode == KeyCode.A)
-                snake.setDirection(Snake.Direction.LEFT);
+            switch (keyCode) {
+                case W:
+                    snake.setDirection(Snake.Direction.UP);
+                    break;
+                case D:
+                    snake.setDirection(Snake.Direction.RIGHT);
+                    break;
+                case S:
+                    snake.setDirection(Snake.Direction.DOWN);
+                    break;
+                case A:
+                    snake.setDirection(Snake.Direction.LEFT);
+                    break;
+            }
         });
 
 
@@ -41,7 +47,6 @@ public class PlayScreenController {
                         graphics.render(playScreen.getGc(), snake);
                     } else
                         cancel();
-
                 });
             }
         }, 0L, 200L);

@@ -18,6 +18,10 @@ public class Snake {
         return isAlive;
     }
 
+    public void setIsAlive(boolean isAlive) {
+        this.isAlive = isAlive;
+    }
+
     public int getXPosition() {
         return xPosition;
     }
@@ -34,12 +38,12 @@ public class Snake {
         this.lastXPosition = lastXPosition;
     }
 
-    public void setLastYPosition(int lastYPosition) {
-        this.lastYPosition = lastYPosition;
-    }
-
     public int getLastYPosition() {
         return lastYPosition;
+    }
+
+    public void setLastYPosition(int lastYPosition) {
+        this.lastYPosition = lastYPosition;
     }
 
     public Direction getDirection() {
@@ -63,16 +67,28 @@ public class Snake {
         switch (direction) {
 
             case UP:
-                yPosition -= 1;
+                if (yPosition == 0)
+                    isAlive = false;
+                else
+                    yPosition -= 1;
                 break;
             case DOWN:
-                yPosition += 1;
+                if (yPosition == 43)
+                    isAlive = false;
+                else
+                    yPosition += 1;
                 break;
             case RIGHT:
-                xPosition += 1;
+                if (xPosition == 49)
+                    isAlive = false;
+                else
+                    xPosition += 1;
                 break;
             case LEFT:
-                xPosition -= 1;
+                if (xPosition == 0)
+                    isAlive = false;
+                else
+                    xPosition -= 1;
                 break;
         }
     }
