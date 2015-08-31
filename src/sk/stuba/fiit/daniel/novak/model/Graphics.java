@@ -13,6 +13,8 @@ import java.util.Random;
 public class Graphics {
 
     private int[][] board = new int[50][44];
+    private boolean eaten = true;
+    public int score = 0;
 
     public Graphics() {
         board[25][22] = 4;
@@ -25,6 +27,11 @@ public class Graphics {
     private void drawBoard(GraphicsContext gc, Snake snake) {
 
         if (snake.isAlive()) {
+            if(board[snake.getXPosition()][snake.getYPosition()] == - 1){
+                snake.setTicks(snake.getTicks() + 1);
+                eaten = true;
+                score += 10;
+            }
             board[snake.getXPosition()][snake.getYPosition()] = snake.getTicks() + 1;
             gc.setStroke(Color.DARKGOLDENROD);
             gc.setLineWidth(2);
@@ -45,6 +52,7 @@ public class Graphics {
                     } else if (board[i][j] == -1) {
                         gc.setFill(Color.CORAL);
                         gc.fillRect(i * 10, j * 10, 10, 10);
+                        eaten = false;
                     }
                 }
             }
@@ -72,7 +80,8 @@ public class Graphics {
         gc.setFill(Color.BLACK);
         gc.fillRect(0, 0, 500, 440);
 
-        food();
+        if (eaten)
+            food();
         snake.move();
         drawBoard(gc, snake);
 

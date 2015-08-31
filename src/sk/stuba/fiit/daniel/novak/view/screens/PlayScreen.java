@@ -3,6 +3,7 @@ package sk.stuba.fiit.daniel.novak.view.screens;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import sk.stuba.fiit.daniel.novak.model.Context;
@@ -16,6 +17,7 @@ public class PlayScreen extends BasicView {
     private Canvas canvas;
     private GraphicsContext gc;
     private Label label;
+    public Label score;
     private PlayScreenListener playScreenListener;
 
     public PlayScreen(Context context) {
@@ -39,11 +41,13 @@ public class PlayScreen extends BasicView {
     }
 
     private void init() {
-        label = new Label("Score:");
+        label = new Label("Score:   ");
+        score = new Label("0");
     }
 
     private void add() {
         grid2.add(label, 0, 0);
+        grid2.add(score, 1, 0);
     }
 
 

@@ -45,6 +45,7 @@ public class PlayScreenController {
                 Platform.runLater(() -> {
                     if (snake.isAlive()) {
                         graphics.render(playScreen.getGc(), snake);
+                        playScreen.score.setText("" + graphics.score);
                     } else
                         cancel();
                 });

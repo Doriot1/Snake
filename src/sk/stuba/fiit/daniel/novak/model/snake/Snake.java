@@ -8,8 +8,6 @@ public class Snake {
     private boolean isAlive = true;
     private int xPosition = 25;
     private int yPosition = 22;
-    private int lastXPosition = 22;
-    private int lastYPosition = 22;
     private Direction direction = Direction.RIGHT;
     private int ticks = 4;
 
@@ -18,9 +16,6 @@ public class Snake {
         return isAlive;
     }
 
-    public void setIsAlive(boolean isAlive) {
-        this.isAlive = isAlive;
-    }
 
     public int getXPosition() {
         return xPosition;
@@ -30,32 +25,16 @@ public class Snake {
         return yPosition;
     }
 
-    public int getLastXPosition() {
-        return lastXPosition;
-    }
-
-    public void setLastXPosition(int lastXPosition) {
-        this.lastXPosition = lastXPosition;
-    }
-
-    public int getLastYPosition() {
-        return lastYPosition;
-    }
-
-    public void setLastYPosition(int lastYPosition) {
-        this.lastYPosition = lastYPosition;
-    }
-
-    public Direction getDirection() {
-        return direction;
-    }
-
     public void setDirection(Direction direction) {
         this.direction = direction;
     }
 
     public int getTicks() {
         return ticks;
+    }
+
+    public void setTicks(int ticks) {
+        this.ticks = ticks;
     }
 
     /**
