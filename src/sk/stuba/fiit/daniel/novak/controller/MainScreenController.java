@@ -28,7 +28,7 @@ public class MainScreenController {
                 playScreen = new PlayScreen(context);
                 context.switchScene(playScreen);
                 playScreen.requestFocus();
-                new PlayScreenController(graphics, playScreen);
+                new PlayScreenController(graphics, playScreen, context);
             }
         });
     }
