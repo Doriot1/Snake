@@ -26,14 +26,16 @@ public class Graphics {
     //(optional update), input, update, render
     private void drawBoard(GraphicsContext gc, Snake snake) {
 
-        if (snake.isAlive()) {
+        if(board[snake.getXPosition()][snake.getYPosition()] > 0)
+            snake.setIsAlive(false);
+        else if (snake.isAlive()) {
             if(board[snake.getXPosition()][snake.getYPosition()] == - 1){
                 snake.setTicks(snake.getTicks() + 1);
                 eaten = true;
                 score += 10;
             }
             board[snake.getXPosition()][snake.getYPosition()] = snake.getTicks() + 1;
-            gc.setStroke(Color.DARKGOLDENROD);
+            gc.setStroke(Color.BLACK);
             gc.setLineWidth(2);
 
             for (int i = 0; i < board.length; i++) {
@@ -84,7 +86,6 @@ public class Graphics {
             food();
         snake.move();
         drawBoard(gc, snake);
-
     }
 
 }

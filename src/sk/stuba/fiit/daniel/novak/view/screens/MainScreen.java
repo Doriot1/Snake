@@ -27,7 +27,6 @@ public class MainScreen extends BasicView {
 
     private void init() {
         grid.setId("pane");
-        getStylesheets().add("style.css");
 
         button = new Button("Play");
         button2 = new Button("Options");

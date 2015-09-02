@@ -3,21 +3,21 @@ package sk.stuba.fiit.daniel.novak.view.screens;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import sk.stuba.fiit.daniel.novak.model.Context;
 import sk.stuba.fiit.daniel.novak.view.BasicView;
 
 /**
+ * nope
  * Created by Daniel on 8.8.2015.
  */
 public class PlayScreen extends BasicView {
 
+    public Label score;
     private Canvas canvas;
     private GraphicsContext gc;
     private Label label;
-    public Label score;
     private PlayScreenListener playScreenListener;
 
     public PlayScreen(Context context) {
@@ -42,7 +42,9 @@ public class PlayScreen extends BasicView {
 
     private void init() {
         label = new Label("Score:   ");
+        label.setId("fancy");
         score = new Label("0");
+        score.setId("fancy");
     }
 
     private void add() {
@@ -55,7 +57,9 @@ public class PlayScreen extends BasicView {
         return gc;
     }
 
-    public void setPlayScreenListener(PlayScreenListener playScreenListener){this.playScreenListener = playScreenListener;}
+    public void setPlayScreenListener(PlayScreenListener playScreenListener) {
+        this.playScreenListener = playScreenListener;
+    }
 
     public interface PlayScreenListener {
         void onKeyPressed(KeyCode keyCode);

@@ -21,6 +21,10 @@ public class Snake {
         return xPosition;
     }
 
+    public void setIsAlive(boolean isAlive) {
+        this.isAlive = isAlive;
+    }
+
     public int getYPosition() {
         return yPosition;
     }
@@ -35,6 +39,10 @@ public class Snake {
 
     public void setTicks(int ticks) {
         this.ticks = ticks;
+    }
+
+    public Direction getDirection() {
+        return direction;
     }
 
     /**

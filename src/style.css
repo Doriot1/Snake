@@ -1,7 +1,22 @@
-#pane{
+#pane {
     -fx-background-image: url("1_zombie_snake.png");
     -fx-background-repeat: stretch;
     -fx-background-size: 500 500;
     -fx-background-position: center center;
-    -fx-effect: dropShadow(three-pass-box, black, 30, 0.5, 0, 0)
+    -fx-effect: dropShadow(three-pass-box, black, 30, 0.5, 0, 0);
 }
+
+#game_over {
+    -fx-background-image: url("stiahnut.jpg");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 500 400;
+    -fx-background-position: center center;
+    -fx-effect: dropShadow(three-pass-box, black, 30, 0.5, 0, 0);
+}
+
+#fancy {
+    -fx-font: 20px Tahoma;
+    -fx-stroke: black;
+    -fx-stroke-width: 1;
+}
+
