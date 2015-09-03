@@ -6,6 +6,7 @@ import javafx.scene.media.MediaPlayer;
 import java.net.URL;
 
 /**
+ * short sounds
  * Created by Daniel on 2.9.2015.
  */
 public class Sounds {
@@ -15,7 +16,8 @@ public class Sounds {
 
     public void play(){
         player = new MediaPlayer(media);
-        player.setVolume(0.3D);
         player.play();
+        player.setVolume(0.3D);
+        System.out.println(player.getVolume());
     }
 }
