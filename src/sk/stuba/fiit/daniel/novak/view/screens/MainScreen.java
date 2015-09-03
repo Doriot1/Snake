@@ -37,8 +37,11 @@ public class MainScreen extends BasicView {
         grid.setHalignment(button3, HPos.CENTER);
 
         getContext().getStage().setOnCloseRequest(e -> mainScreenListener.onButtonClose());
+
         button.setOnAction(e -> mainScreenListener.onButtonPlay());
+        button2.setOnAction(e -> mainScreenListener.onButtonOptions());
         button3.setOnAction(e -> mainScreenListener.onButtonClose());
+
         setOnKeyPressed(e -> {
             if (e.getCode() == KeyCode.ENTER)
                 mainScreenListener.onButtonPlay();
@@ -62,5 +65,7 @@ public class MainScreen extends BasicView {
         void onButtonClose();
 
         void onButtonPlay();
+
+        void onButtonOptions();
     }
 }

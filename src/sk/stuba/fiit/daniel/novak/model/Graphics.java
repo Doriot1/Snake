@@ -2,6 +2,7 @@ package sk.stuba.fiit.daniel.novak.model;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import sk.stuba.fiit.daniel.novak.model.audio.Sounds;
 import sk.stuba.fiit.daniel.novak.model.snake.Snake;
 
 import java.util.Random;
@@ -12,6 +13,7 @@ import java.util.Random;
  */
 public class Graphics {
 
+    private Sounds sounds = new Sounds();
     private int[][] board = new int[50][44];
     private boolean eaten = true;
     public int score = 0;
@@ -33,6 +35,7 @@ public class Graphics {
                 snake.setTicks(snake.getTicks() + 1);
                 eaten = true;
                 score += 10;
+                sounds.play();
             }
             board[snake.getXPosition()][snake.getYPosition()] = snake.getTicks() + 1;
             gc.setStroke(Color.BLACK);

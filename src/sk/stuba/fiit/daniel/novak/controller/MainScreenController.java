@@ -3,6 +3,7 @@ package sk.stuba.fiit.daniel.novak.controller;
 import sk.stuba.fiit.daniel.novak.model.Context;
 import sk.stuba.fiit.daniel.novak.model.Graphics;
 import sk.stuba.fiit.daniel.novak.view.screens.MainScreen;
+import sk.stuba.fiit.daniel.novak.view.screens.OptionsScreen;
 import sk.stuba.fiit.daniel.novak.view.screens.PlayScreen;
 
 /**
@@ -11,6 +12,7 @@ import sk.stuba.fiit.daniel.novak.view.screens.PlayScreen;
 public class MainScreenController {
 
     private PlayScreen playScreen;
+    private OptionsScreen optionsScreen;
     private Graphics graphics = new Graphics();
 
     public MainScreenController(Context context, MainScreen mainScreen) {
@@ -29,6 +31,13 @@ public class MainScreenController {
                 context.switchScene(playScreen);
                 playScreen.requestFocus();
                 new PlayScreenController(graphics, playScreen, context);
+            }
+
+            @Override
+            public void onButtonOptions(){
+                optionsScreen = new OptionsScreen(context);
+                context.switchScene(optionsScreen);
+                new OptionsScreenController(context, optionsScreen);
             }
         });
     }
