@@ -8,9 +8,11 @@ import java.net.URL;
 
 public class Music {
 
+    private String song = "/Chopin.mp3";
+
     // starting piece
-    private URL thing = getClass().getResource("/Chopin.mp3");
-    private Media media = new Media(thing.toString());
+    private URL thing;
+    private Media media;
     private MediaPlayer player;
 
     // grenade sound
@@ -18,7 +20,9 @@ public class Music {
     private Media media2 = new Media(thing2.toString());
     private MediaPlayer player2;
 
-    public void play() {
+    public void play(String song) {
+        thing = getClass().getResource(song);
+        media = new Media(thing.toString());
         player = new MediaPlayer(media);
         player.play();
     }
@@ -27,5 +31,13 @@ public class Music {
         player.stop();
         player2 = new MediaPlayer(media2);
         player2.play();
+    }
+
+    public void setSong(String song) {
+        this.song = song;
+    }
+
+    public String getSong() {
+        return song;
     }
 }

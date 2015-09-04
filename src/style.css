@@ -20,3 +20,16 @@
     -fx-stroke-width: 1;
 }
 
+#controls {
+    -fx-font: 15px Tahoma;
+    -fx-stroke: black;
+    -fx-stroke-width: 1;
+}
+
+#fancy2 {
+    -fx-background-image: url("images.jpg");
+    -fx-background-size: cover;
+    -fx-background-repeat: stretch;
+    -fx-effect: dropShadow(three-pass-box, black, 30, 0.5, 0, 0);
+}
+

@@ -19,14 +19,13 @@ import java.util.TimerTask;
  */
 public class PlayScreenController {
     private Timer timer = new Timer();
-    private Music music = new Music();
     private Snake snake;
     private MainScreen mainScreen;
 
-    public PlayScreenController(Graphics graphics, PlayScreen playScreen, Context context) {
+    public PlayScreenController(Graphics graphics, PlayScreen playScreen, Context context, Music music) {
 
         snake = new Snake();
-        music.play();
+        music.play(music.getSong());
 
         playScreen.setPlayScreenListener(new PlayScreen.PlayScreenListener() {
             @Override
@@ -63,7 +62,7 @@ public class PlayScreenController {
             public void onMainMenuPressed() {
                 mainScreen = new MainScreen(context);
                 context.switchScene(mainScreen);
-                new MainScreenController(context, mainScreen);
+                new MainScreenController(context, mainScreen, music);
             }
         });
 

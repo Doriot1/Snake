@@ -10,14 +10,13 @@ import java.net.URL;
  * Created by Daniel on 2.9.2015.
  */
 public class Sounds {
-    private URL thing = getClass().getResource("/food.wav");
+    private URL thing = getClass().getResource("/food.mp3");
     private Media media = new Media(thing.toString());
     private MediaPlayer player;
 
     public void play(){
         player = new MediaPlayer(media);
+        player.setVolume(0.9D);
         player.play();
-        player.setVolume(0.3D);
-        System.out.println(player.getVolume());
     }
 }

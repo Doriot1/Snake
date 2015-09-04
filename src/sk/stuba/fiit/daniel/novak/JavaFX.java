@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import sk.stuba.fiit.daniel.novak.controller.MainScreenController;
 import sk.stuba.fiit.daniel.novak.model.Context;
+import sk.stuba.fiit.daniel.novak.model.audio.Music;
 import sk.stuba.fiit.daniel.novak.view.screens.MainScreen;
 
 /**
@@ -18,9 +19,10 @@ public class JavaFX extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        Music music = new Music();
         Context context = new Context(primaryStage);
         MainScreen mainScreen = new MainScreen(context);
         context.switchScene(mainScreen);
-        MainScreenController.initAndStart(context, mainScreen);
+        MainScreenController.initAndStart(context, mainScreen, music);
     }
 }
