@@ -40,11 +40,9 @@ public class OptionsScreen extends BasicView {
     private Label label3_2;
 
     private ListView<String> list;
-    private ObservableList<String> list2;
 
     private int select = 0;
 
-    private Image image;
     private ImageView imageView;
 
 
@@ -59,7 +57,7 @@ public class OptionsScreen extends BasicView {
     }
 
     private void init() {
-        image = new Image("footer-art.png");
+        Image image = new Image("footer-art.png");
         imageView = new ImageView(image);
 
         button1 = new Button("How to play");
@@ -68,18 +66,19 @@ public class OptionsScreen extends BasicView {
         button4 = new Button("Back");
         button3_2 = new Button("Confirm");
 
-        gridPane1.setId("controls");
+        gridPane1.setId("fancyTypo");
+        gridPane3.setId("fancyTypo");
         label1 = new Label("\n      Controls: W, A, D, S. For each food eaten score increments by 10.\n      After reaching certain amount of " +
                 "points you will be let into next level.\n      Try reaching top place at the leader board. Good luck, snake!\n" +
                 "      You can also change the music to suit your style and start from\n      a different level once it's unlocked!");
-        label3 = new Label(" Here you can choose music you like, if you don't like any of the music listed here, let\n me know and I'll add something " +
+        label3 = new Label(" Here you can choose music you like, if you don't like any of the music\n listed here, let me know and I'll add something " +
                 "to suit your needs.");
-        label3_2 = new Label("Don't forget to confirm your choice by pressing this ----->");
+        label3_2 = new Label(" Don't forget to confirm your choice by pressing this -->");
 
-        hBox.setMargin(button1, new Insets(20));
-        hBox.setMargin(button2, new Insets(20));
-        hBox.setMargin(button3, new Insets(20));
-        hBox.setMargin(button4, new Insets(20));
+        HBox.setMargin(button1, new Insets(20));
+        HBox.setMargin(button2, new Insets(20));
+        HBox.setMargin(button3, new Insets(20));
+        HBox.setMargin(button4, new Insets(20));
 
         button1.setOnAction(e -> optionsScreenListener.onButtonHowToPlay(gridPane1, hBox));
         button2.setOnAction(e -> optionsScreenListener.onButtonGameSettings(gridPane2, hBox));
@@ -87,7 +86,7 @@ public class OptionsScreen extends BasicView {
         button4.setOnAction(e -> optionsScreenListener.onButtonBack());
         button3_2.setOnAction(e -> optionsScreenListener.onButtonChoice(select, list));
 
-        list2 = FXCollections.observableArrayList("Chopin - Rain Drop", "Darude - Sandstorm", "Eluveitie - DRUID",
+        ObservableList<String> list2 = FXCollections.observableArrayList("Chopin - Rain Drop", "Darude - Sandstorm", "Eluveitie - DRUID",
                 "Eminem - Without me", "Wintersun - Death & the Healing");
         list = new ListView<>(list2);
 
@@ -103,7 +102,7 @@ public class OptionsScreen extends BasicView {
         gridPane3.add(label3, 0, 1, 5, 1);
         gridPane3.add(label3_2, 0, 5, 4, 1);
         gridPane3.add(button3_2, 3, 5, 2, 1);
-        gridPane3.setHalignment(button3_2, HPos.CENTER);
+        GridPane.setHalignment(button3_2, HPos.RIGHT);
         gridPane3.add(list, 3, 2, 2, 3);
         gridPane3.add(imageView, 0, 7, 2, 3);
     }

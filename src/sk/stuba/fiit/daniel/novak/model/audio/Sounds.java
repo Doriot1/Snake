@@ -12,11 +12,10 @@ import java.net.URL;
 public class Sounds {
     private URL thing = getClass().getResource("/food.mp3");
     private Media media = new Media(thing.toString());
-    private MediaPlayer player;
 
     public void play(){
-        player = new MediaPlayer(media);
-        player.setVolume(0.9D);
+        MediaPlayer player = new MediaPlayer(media);
+        player.setVolume(0.3);
         player.play();
     }
 }

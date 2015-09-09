@@ -18,7 +18,6 @@ import java.util.TimerTask;
  * Created by Daniel on 10.8.2015.
  */
 public class PlayScreenController {
-    private Timer timer = new Timer();
     private Snake snake;
     private MainScreen mainScreen;
 
@@ -67,6 +66,7 @@ public class PlayScreenController {
         });
 
 
+        Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
@@ -82,7 +82,7 @@ public class PlayScreenController {
                     }
                 });
             }
-        }, 0L, 100L);
+        }, 0L, 80L);
 
     }
 }

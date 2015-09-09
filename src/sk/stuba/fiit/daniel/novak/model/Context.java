@@ -20,7 +20,7 @@ public class Context {
         stage.setScene(scene);
         stage.setHeight(530);
         stage.setWidth(505);
-        //stage.sizeToScene();
+       // stage.sizeToScene();
         stage.setResizable(false);
         stage.setTitle("Snake");
         stage.show();

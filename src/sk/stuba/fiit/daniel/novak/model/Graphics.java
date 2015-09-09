@@ -13,10 +13,11 @@ import java.util.Random;
  */
 public class Graphics {
 
+    public int score = 0;
     private Sounds sounds = new Sounds();
     private int[][] board = new int[50][44];
     private boolean eaten = true;
-    public int score = 0;
+    private boolean locked = false;
 
     public Graphics() {
         board[25][22] = 4;
@@ -28,15 +29,18 @@ public class Graphics {
     //(optional update), input, update, render
     private void drawBoard(GraphicsContext gc, Snake snake) {
 
-        if(board[snake.getXPosition()][snake.getYPosition()] > 0)
+        if (board[snake.getXPosition()][snake.getYPosition()] > 0)
             snake.setIsAlive(false);
         else if (snake.isAlive()) {
-            if(board[snake.getXPosition()][snake.getYPosition()] == - 1){
+            if (board[snake.getXPosition()][snake.getYPosition()] == -1) {
                 snake.setTicks(snake.getTicks() + 1);
                 eaten = true;
                 score += 10;
                 sounds.play();
             }
+
+            if(board[snake.getXPosition()][snake.getYPosition()] == snake.getTicks() - 1)
+                locked = true;
             board[snake.getXPosition()][snake.getYPosition()] = snake.getTicks() + 1;
             gc.setStroke(Color.BLACK);
             gc.setLineWidth(2);
@@ -78,7 +82,6 @@ public class Graphics {
             }
 
         } while (board[x][y] != -1);
-
     }
 
     public void render(GraphicsContext gc, Snake snake) {

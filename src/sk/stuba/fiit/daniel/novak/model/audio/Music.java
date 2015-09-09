@@ -8,7 +8,7 @@ import java.net.URL;
 
 public class Music {
 
-    private String song = "/Chopin.mp3";
+    private String song = "/Darude - Sandstorm.mp3";
 
     // starting piece
     private URL thing;
