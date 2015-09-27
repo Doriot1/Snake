@@ -68,9 +68,9 @@ public class OptionsScreen extends BasicView {
 
         gridPane1.setId("fancyTypo");
         gridPane3.setId("fancyTypo");
-        label1 = new Label("\n      Controls: W, A, D, S. For each food eaten score increments by 10.\n      After reaching certain amount of " +
-                "points you will be let into next level.\n      Try reaching top place at the leader board. Good luck, snake!\n" +
-                "      You can also change the music to suit your style and start from\n      a different level once it's unlocked!");
+        label1 = new Label("\n     Controls: W, A, D, S. For each food eaten score increments by 10.\n     After reaching certain amount of " +
+                "points you will be let into next\n     level.Try reaching top place at the leader board. Good luck, snake!\n" +
+                "      You can also change the music to suit your style and start from\n     a different level once it's unlocked!");
         label3 = new Label(" Here you can choose music you like, if you don't like any of the music\n listed here, let me know and I'll add something " +
                 "to suit your needs.");
         label3_2 = new Label(" Don't forget to confirm your choice by pressing this -->");

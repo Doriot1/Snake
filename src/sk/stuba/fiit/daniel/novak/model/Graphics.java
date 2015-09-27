@@ -17,9 +17,26 @@ public class Graphics {
     private Sounds sounds = new Sounds();
     private int[][] board = new int[50][44];
     private boolean eaten = true;
-    private boolean locked = false;
 
     public Graphics() {
+       /* board[26][30] = -2;
+        board[27][30] = -2;
+        board[28][30] = -2;
+        board[29][30] = -2;
+        board[30][30] = -2;
+        board[31][30] = -2;
+        board[32][30] = -2;
+        board[33][30] = -2;
+        board[34][30] = -2;
+        board[35][30] = -2;
+        board[36][30] = -2;
+        board[37][30] = -2;
+        board[38][30] = -2;
+        board[39][30] = -2;
+        board[40][30] = -2;
+        board[41][30] = -2;
+        board[42][30] = -2;
+*/
         board[25][22] = 4;
         board[24][22] = 3;
         board[23][22] = 2;
@@ -29,7 +46,7 @@ public class Graphics {
     //(optional update), input, update, render
     private void drawBoard(GraphicsContext gc, Snake snake) {
 
-        if (board[snake.getXPosition()][snake.getYPosition()] > 0)
+        if (board[snake.getXPosition()][snake.getYPosition()] > 0 || board[snake.getXPosition()][snake.getYPosition()] == -2)
             snake.setIsAlive(false);
         else if (snake.isAlive()) {
             if (board[snake.getXPosition()][snake.getYPosition()] == -1) {
@@ -39,8 +56,7 @@ public class Graphics {
                 sounds.play();
             }
 
-            if(board[snake.getXPosition()][snake.getYPosition()] == snake.getTicks() - 1)
-                locked = true;
+
             board[snake.getXPosition()][snake.getYPosition()] = snake.getTicks() + 1;
             gc.setStroke(Color.BLACK);
             gc.setLineWidth(2);
@@ -62,6 +78,10 @@ public class Graphics {
                         gc.setFill(Color.CORAL);
                         gc.fillRect(i * 10, j * 10, 10, 10);
                         eaten = false;
+
+                    } else if (board[i][j] == -2) {
+                        gc.setFill(Color.WHITE);
+                        gc.fillRect(i * 10, j * 10, 10, 10);
                     }
                 }
             }

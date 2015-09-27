@@ -20,6 +20,7 @@ import java.util.TimerTask;
 public class PlayScreenController {
     private Snake snake;
     private MainScreen mainScreen;
+    private boolean locked = false;
 
     public PlayScreenController(Graphics graphics, PlayScreen playScreen, Context context, Music music) {
 
@@ -31,28 +32,28 @@ public class PlayScreenController {
             public void onKeyPressed(KeyCode keyCode) {
                 switch (keyCode) {
                     case W:
-                        if (snake.getDirection() == Snake.Direction.DOWN)
-                            ;
-                        else
+                        if (snake.getDirection() != Snake.Direction.DOWN && !locked) {
                             snake.setDirection(Snake.Direction.UP);
+                            locked = true;
+                        }
                         break;
                     case D:
-                        if (snake.getDirection() == Snake.Direction.LEFT)
-                            ;
-                        else
+                        if (snake.getDirection() != Snake.Direction.LEFT && !locked) {
                             snake.setDirection(Snake.Direction.RIGHT);
+                            locked = true;
+                        }
                         break;
                     case S:
-                        if (snake.getDirection() == Snake.Direction.UP)
-                            ;
-                        else
+                        if (snake.getDirection() != Snake.Direction.UP && !locked) {
                             snake.setDirection(Snake.Direction.DOWN);
+                            locked = true;
+                        }
                         break;
                     case A:
-                        if (snake.getDirection() == Snake.Direction.RIGHT)
-                            ;
-                        else
+                        if (snake.getDirection() != Snake.Direction.RIGHT && !locked) {
                             snake.setDirection(Snake.Direction.LEFT);
+                            locked = true;
+                        }
                         break;
                 }
             }
@@ -73,6 +74,7 @@ public class PlayScreenController {
                 Platform.runLater(() -> {
                     if (snake.isAlive()) {
                         graphics.render(playScreen.getGc(), snake);
+                        locked = false;
                         playScreen.score.setText("" + graphics.score);
                     } else {
                         cancel();
@@ -82,7 +84,7 @@ public class PlayScreenController {
                     }
                 });
             }
-        }, 0L, 80L);
+        }, 0L, 100L);
 
     }
 }
